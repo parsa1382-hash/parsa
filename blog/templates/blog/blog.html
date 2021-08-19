@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<title>Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+	<div class="">
+		<div class="card-header">
+	      <ul class="nav nav-tabs card-header-tabs">
+	        <li class="nav-item">
+	          <a class="nav-link" aria-current="page" href="{% url 'base:home' %}">Home</a>
+	        </li>
+
+	        <li class="nav-item dropdown">
+	          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true">Shop</a>
+	          <ul class="dropdown-menu">
+	            <li><a class="dropdown-item" href="{% url 'shop:shop' 1 %}">قهوه های گانودرما</a></li>
+	            <li><a class="dropdown-item" href="{% url 'shop:shop' 2 %}">ارایشی</a></li>
+	            <li><a class="dropdown-item" href="{% url 'shop:shop' 3 %}">بهداشتی</a></li>
+	            <li><a class="dropdown-item" href="{% url 'shop:shop' 4 %}">مواد غذایی</a></li>
+	            <li><a class="dropdown-item" href="{% url 'shop:shop' 5 %}">شوینده بهداشتی</a></li>
+	            <li><a class="dropdown-item" href="{% url 'shop:shop' 6 %}">منسوجات</a></li>
+	            <li><a class="dropdown-item" href="{% url 'shop:shop' 7 %}">لوازم خانگی</a></li>
+	            <li><a class="dropdown-item" href="{% url 'shop:shop' 8 %}">محصولات کشاورزی</a></li>
+
+	          </ul>
+	        </li>
+
+	        <li class="nav-item">
+	          <a class="nav-link active" href="{% url 'blog:blog' %}">Blog</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="{% url 'user:profile' %}">
+	            {% if user.is_authenticated %}
+	              Profile
+	            {% else %}
+	              Login
+	            {% endif %}
+	          </a>
+	        </li>
+	      </ul>
+	    </div>
+
+		<div class="m-3">
+			{% if posts == False %}
+				<div class="alert alert-danger">there is no post yet</div>
+			{% else %}
+			<div class="col-10">
+				{% for post in posts %}
+					<div class="card" style="width: 18rem;">
+					  <img src="{{ post.image.url }}" class="card-img-top" alt="...">
+					  <div class="card-body">
+					    <h5 class="card-title">{{ post.title }}</h5>
+					    <p class="card-text">{{post.content|slice:":200" }}</p>
+					    <a href="{% url 'blog:post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+					  </div>
+					</div>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+	</div>
+
+</body>
+</html>
