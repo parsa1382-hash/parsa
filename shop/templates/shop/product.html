@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>{{ product.name }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="">
+    <div>
+      <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'base:home' %}">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true">Shop</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'shop:shop' 1 %}">قهوه های گانودرما</a></li>
+            <li><a class="dropdown-item" href="{% url 'shop:shop' 2 %}">ارایشی</a></li>
+            <li><a class="dropdown-item" href="{% url 'shop:shop' 3 %}">بهداشتی</a></li>
+            <li><a class="dropdown-item" href="{% url 'shop:shop' 4 %}">مواد غذایی</a></li>
+            <li><a class="dropdown-item" href="{% url 'shop:shop' 5 %}">شوینده بهداشتی</a></li>
+            <li><a class="dropdown-item" href="{% url 'shop:shop' 6 %}">منسوجات</a></li>
+            <li><a class="dropdown-item" href="{% url 'shop:shop' 7 %}">لوازم خانگی</a></li>
+            <li><a class="dropdown-item" href="{% url 'shop:shop' 8 %}">محصولات کشاورزی</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'blog:blog' %}">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'user:profile' %}">
+            {% if user.is_authenticated %}
+              Profile
+            {% else %}
+              Login
+            {% endif %}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+        <div class="m-3 ">
+          <div class="card mb-3 shadow">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{ product.image.url }}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <p style="float: left;padding: 5px;" class="shadow-sm card-text border border-2 border-warning d-inline rounded-2 text-warning"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg> {{ product.point }}</p>
+                  <h5 class="card-title text-end">{{ product.name }}</h5>
+                  <p class="card-text text-end">{{ product.review }}</p><br>
+                </div>
+                <div class="m-3" style="bottom: 0px;">
+                  <h5 style="float: right;" class="shadow-sm border border-2 p-1 text-success border-success rounded-3">{{ product.price }} تومان</h5>
+                  <a href="{% url 'shop:buy' product.id %}" class="btn btn-primary shadow-sm">ثبت</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div class="card shadow">
+          <div class="card-header text-end">
+            استفاده
+          </div>
+          <div class="card-body text-end">
+              <p>{{ product.usage }}</p>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="card shadow mb-3">
+          <div class="card-header text-end">
+            توضیحات
+          </div>
+          <div class="card-body text-end">
+              <p>{{ product.description }}</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+</body>
+</html>
