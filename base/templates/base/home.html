@@ -30,11 +30,11 @@
 		<div class="card-header">
 			<ul class="nav nav-tabs card-header-tabs">
 			  <li class="nav-item">
-			    <a class="nav-link active" aria-current="page" href="{% url 'base:home' %}">Home</a>
+			    <a class="nav-link active" aria-current="page" href="{% url 'base:home' %}">خانه</a>
 			  </li>
 
 			  <li class="nav-item dropdown">
-			    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true">Shop</a>
+			    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true">فروشگاه</a>
 			    <ul class="dropdown-menu">
 			      <li><a class="dropdown-item" href="{% url 'shop:shop' 1 %}">قهوه های گانودرما</a></li>
 			      <li><a class="dropdown-item" href="{% url 'shop:shop' 2 %}">ارایشی</a></li>
@@ -49,7 +49,7 @@
 			  </li>
 
 			  <li class="nav-item">
-			    <a class="nav-link" href="{% url 'blog:blog' %}">Blog</a>
+			    <a class="nav-link" href="{% url 'blog:blog' %}">بلاگ</a>
 			  </li>
 			  <li class="nav-item">
 			    <a class="nav-link" href="{% url 'user:profile' %}">
@@ -70,7 +70,7 @@
 			<div class="grid m-4">
 				{% for product in products %}
 					<div class="card mb-2">
-					  <a href="{% url 'shop:product' product.id %}"><img src="{{ product.image.url }}" class="card-img-top" height="30%" alt="...">
+					  <a href="{% url 'shop:product' product.id %}"><img src="{{ product.image.url }}" class="card-img-top" alt="...">
 					  	
 					  </a>
 					  <div class="card-body">

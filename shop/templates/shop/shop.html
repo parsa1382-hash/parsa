@@ -30,11 +30,11 @@
 		<div class="card-header">
 			<ul class="nav nav-tabs card-header-tabs">
 			  <li class="nav-item">
-			    <a class="nav-link " aria-current="page" href="{% url 'base:home' %}">Home</a>
+			    <a class="nav-link " aria-current="page" href="{% url 'base:home' %}">خانه</a>
 			  </li>
 
 			  <li class="nav-item dropdown">
-			    <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true">Shop</a>
+			    <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true">فروشگاه</a>
 			    <ul class="dropdown-menu">
 			      <li><a class="dropdown-item" href="{% url 'shop:shop' 1 %}">قهوه های گانودرما</a></li>
 			      <li><a class="dropdown-item" href="{% url 'shop:shop' 2 %}">ارایشی</a></li>
@@ -49,14 +49,14 @@
 			  </li>
 
 			  <li class="nav-item">
-			    <a class="nav-link" href="{% url 'blog:blog' %}">Blog</a>
+			    <a class="nav-link" href="{% url 'blog:blog' %}">بلاگ</a>
 			  </li>
 			  <li class="nav-item">
 			    <a class="nav-link" href="{% url 'user:profile' %}">
 			    	{% if user.is_authenticated %}
-			    		Profile
+			    		ادمین
 			    	{% else %}
-			    		Login
+			    		ورود
 			    	{% endif %}
 			    </a>
 			  </li>
