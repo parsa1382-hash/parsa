@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 app_name = 'shop'
 
 urlpatterns = [
+	path('instagram/<int:product_id>', views.instagram, name="instagram"),
 	path('<int:category_id>', views.shop, name='shop'),
 	path('buy/<int:product_id>', views.buy, name='buy'),
 	path('product/<int:product_id>', views.product, name='product'),
