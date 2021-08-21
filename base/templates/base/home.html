@@ -54,9 +54,9 @@
 			  <li class="nav-item">
 			    <a class="nav-link" href="{% url 'user:profile' %}">
 			    	{% if user.is_authenticated %}
-			    		Profile
+			    		پروفایل
 			    	{% else %}
-			    		Login
+			    		ورود
 			    	{% endif %}
 			    </a>
 			  </li>
@@ -65,9 +65,9 @@
 
 		<div class="m-3 p-3">
 			<h3 class="card-text text-success">Welcome {{ user }}</h3><br>
-			<h6 class="text-end" style="margin-right: 25px;">محصولات پرطرفدار</h6>
+			<h6 class="text-end">محصولات پرطرفدار</h6>
 
-			<div class="grid m-4">
+			<div class="grid mt-3">
 				{% for product in products %}
 					<div class="card mb-2">
 					  <a href="{% url 'shop:product' product.id %}"><img src="{{ product.image.url }}" class="card-img-top" alt="...">

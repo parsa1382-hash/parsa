@@ -44,6 +44,14 @@ class Bought(models.Model):
 	seller = models.ForeignKey(Seller, on_delete=models.CASCADE)
 	date = models.DateTimeField(auto_now=True)
 
+class Buy(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	product = models.ForeignKey(Product, on_delete=models.CASCADE)
+	date = models.DateTimeField(auto_now=True)
+	done = models.BooleanField(default=False)
+
+	def __str__(self):
+		return self.user
 
 class Sell(models.Model):
 	product = models.ForeignKey(Product, on_delete=models.CASCADE)

@@ -25,6 +25,7 @@ def buy(request, product_id):
 	}
 	return render(request, 'shop/buy.html', context)
 
+
 def save_sell(request, product_id):
 	if request.method == 'POST':
 
